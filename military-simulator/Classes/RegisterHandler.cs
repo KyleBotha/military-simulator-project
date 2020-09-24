@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using military_simulator.Classes;
 namespace military_simulator.Classes
 {
     class RegisterHandler
@@ -30,10 +30,16 @@ namespace military_simulator.Classes
             this.cPassword = cPassword;
             register(); 
         }
+        private static string hashedandsaltedpwd;
         public void register()
         {
             checkFieldsEmpty();
             passwordMatch();
+            SQLHandler database = new SQLHandler();
+            Encryption enc = new Encryption();
+            string salt = enc.createSalt();
+            hashedandsaltedpwd = enc.MD5(password + salt);
+            database.createUser(this.name, this.surname, this.rank, this.dodId, this.affiliation, this.username, hashedandsaltedpwd, salt);
         }
         public bool passwordMatch()
         {
