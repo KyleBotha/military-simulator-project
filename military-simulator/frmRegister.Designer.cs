@@ -258,7 +258,7 @@
             this.Controls.Add(this.txtAffiliation);
             this.Controls.Add(this.txtDodId);
             this.Name = "frmRegister";
-            this.Text = "frmRegister";
+            this.Text = "5";
             this.ResumeLayout(false);
             this.PerformLayout();
 
