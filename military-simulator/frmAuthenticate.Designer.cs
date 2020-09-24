@@ -33,7 +33,8 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtAuthenticate = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -92,25 +93,38 @@
             this.lblTitle.Text = "Military Simulator";
             this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
-            // button1
+            // txtAuthenticate
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Army", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(77, 213);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(258, 59);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Authenticate";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.txtAuthenticate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtAuthenticate.Font = new System.Drawing.Font("Army", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAuthenticate.Location = new System.Drawing.Point(77, 213);
+            this.txtAuthenticate.Name = "txtAuthenticate";
+            this.txtAuthenticate.Size = new System.Drawing.Size(258, 59);
+            this.txtAuthenticate.TabIndex = 5;
+            this.txtAuthenticate.Text = "Authenticate";
+            this.txtAuthenticate.UseVisualStyleBackColor = true;
+            this.txtAuthenticate.Click += new System.EventHandler(this.txtAuthenticate_Click);
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegister.Font = new System.Drawing.Font("Army", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.Location = new System.Drawing.Point(77, 278);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(258, 59);
+            this.btnRegister.TabIndex = 6;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.ClientSize = new System.Drawing.Size(395, 300);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(395, 352);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.txtAuthenticate);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
@@ -131,7 +145,8 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button txtAuthenticate;
+        private System.Windows.Forms.Button btnRegister;
     }
 }
 

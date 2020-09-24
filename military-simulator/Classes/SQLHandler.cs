@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace military_simulator.Classes
 {
@@ -29,5 +30,20 @@ namespace military_simulator.Classes
             insertCommand.ExecuteNonQuery();
             sqlConnection.Close();
         }
+        public DataTable readLogin()
+        {
+            DataTable usersData = new DataTable();
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            string usersQuery = "select UserID, Username, Hash, Salt from dbo.Users";
+            
+            SqlCommand usersCommand = new SqlCommand(usersQuery, sqlConnection);
+            sqlConnection.Open();
+            SqlDataAdapter da = new SqlDataAdapter(usersCommand);
+            da.Fill(usersData);
+            sqlConnection.Close();
+            da.Dispose();
+            return usersData;
+        }
+
     }
 }
