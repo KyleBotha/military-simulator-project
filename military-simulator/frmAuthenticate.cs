@@ -1,4 +1,5 @@
-﻿using System;
+﻿using military_simulator.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,9 +48,16 @@ namespace military_simulator
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void txtAuthenticate_Click(object sender, EventArgs e)
         {
+            LoginHandler login = new LoginHandler(txtUsername.Text, txtPassword.Text); 
+        }
 
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            frmRegister register = new frmRegister();
+            register.ShowDialog();
+            this.Hide(); 
         }
     }
 }
