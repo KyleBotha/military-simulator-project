@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace military_simulator
 {
-    public partial class Form1 : Form
+    public partial class frmRegister : Form
     {
-        public Form1()
+        public frmRegister()
         {
             InitializeComponent();
         }
