@@ -1,4 +1,5 @@
-﻿using System;
+﻿using military_simulator.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace military_simulator
         public frmRegister()
         {
             InitializeComponent();
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            RegisterHandler register = new RegisterHandler(txtName.Text, txtSurname.Text, txtRank.Text, txtDodId.Text, txtAffiliation.Text, txtUsername.Text,txtPassword.Text, txtCPassword.Text);
         }
     }
 }
