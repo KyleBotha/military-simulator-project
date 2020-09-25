@@ -47,14 +47,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Encryption.cs" />
+    <Compile Include="Classes\Grid.cs" />
     <Compile Include="Classes\LoginHandler.cs" />
+    <Compile Include="Classes\Node.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\PriorityQueue.cs" />
     <Compile Include="Classes\RegisterHandler.cs" />
     <Compile Include="Classes\SQLHandler.cs" />
+    <Compile Include="Classes\State.cs" />
     <Compile Include="frmAuthenticate.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAuthenticate.Designer.cs">
       <DependentUpon>frmAuthenticate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBattlefield.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBattlefield.Designer.cs">
+      <DependentUpon>frmBattlefield.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBattlefieldPicker.cs">
       <SubType>Form</SubType>
@@ -78,6 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAuthenticate.resx">
       <DependentUpon>frmAuthenticate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBattlefield.resx">
+      <DependentUpon>frmBattlefield.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBattlefieldPicker.resx">
       <DependentUpon>frmBattlefieldPicker.cs</DependentUpon>
