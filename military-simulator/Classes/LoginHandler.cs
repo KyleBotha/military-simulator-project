@@ -56,7 +56,7 @@ namespace military_simulator.Classes
                   
                     if (enc.checkHash(this.password, salt, hashedandsaltedpwd))
                     {
-                        MessageBox.Show("Logged in successfully");
+                        //MessageBox.Show("Logged in successfully");
                     }
                     else
                     {
