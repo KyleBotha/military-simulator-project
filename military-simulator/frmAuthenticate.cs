@@ -50,14 +50,19 @@ namespace military_simulator
 
         private void txtAuthenticate_Click(object sender, EventArgs e)
         {
-            LoginHandler login = new LoginHandler(txtUsername.Text, txtPassword.Text); 
+            LoginHandler login = new LoginHandler(txtUsername.Text, txtPassword.Text);
+            frmBattlefieldPicker battleFieldPicker = new frmBattlefieldPicker();
+            this.Hide();
+            battleFieldPicker.ShowDialog();
+            
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
             frmRegister register = new frmRegister();
+            this.Hide();
             register.ShowDialog();
-            this.Hide(); 
+            
         }
     }
 }
