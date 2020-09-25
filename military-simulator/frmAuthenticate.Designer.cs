@@ -131,6 +131,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Athentication";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);

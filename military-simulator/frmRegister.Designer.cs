@@ -259,6 +259,7 @@
             this.Controls.Add(this.txtAffiliation);
             this.Controls.Add(this.txtDodId);
             this.Name = "frmRegister";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "5";
             this.ResumeLayout(false);
             this.PerformLayout();
