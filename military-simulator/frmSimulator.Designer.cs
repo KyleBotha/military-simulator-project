@@ -31,18 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSimulator));
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlRight = new System.Windows.Forms.Panel();
+            this.pbEnd = new System.Windows.Forms.PictureBox();
+            this.pbMortar = new System.Windows.Forms.PictureBox();
+            this.pbStart = new System.Windows.Forms.PictureBox();
             this.btnSumulate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pbArmyCamp = new System.Windows.Forms.PictureBox();
             this.pnlBottom = new System.Windows.Forms.Panel();
-            this.pbStart = new System.Windows.Forms.PictureBox();
-            this.pbMortar = new System.Windows.Forms.PictureBox();
-            this.pbEnd = new System.Windows.Forms.PictureBox();
             this.pnlRight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbArmyCamp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMortar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMortar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArmyCamp)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -72,9 +72,48 @@
             this.pnlRight.TabIndex = 1;
             this.pnlRight.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRight_Paint);
             // 
+            // pbEnd
+            // 
+            this.pbEnd.BackColor = System.Drawing.Color.DimGray;
+            this.pbEnd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pbEnd.ErrorImage = null;
+            this.pbEnd.Image = ((System.Drawing.Image)(resources.GetObject("pbEnd.Image")));
+            this.pbEnd.InitialImage = null;
+            this.pbEnd.Location = new System.Drawing.Point(168, 62);
+            this.pbEnd.Name = "pbEnd";
+            this.pbEnd.Size = new System.Drawing.Size(104, 99);
+            this.pbEnd.TabIndex = 7;
+            this.pbEnd.TabStop = false;
+            this.pbEnd.Click += new System.EventHandler(this.pbEnd_Click);
+            // 
+            // pbMortar
+            // 
+            this.pbMortar.BackColor = System.Drawing.Color.DimGray;
+            this.pbMortar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pbMortar.Image = ((System.Drawing.Image)(resources.GetObject("pbMortar.Image")));
+            this.pbMortar.InitialImage = null;
+            this.pbMortar.Location = new System.Drawing.Point(168, 186);
+            this.pbMortar.Name = "pbMortar";
+            this.pbMortar.Size = new System.Drawing.Size(104, 99);
+            this.pbMortar.TabIndex = 6;
+            this.pbMortar.TabStop = false;
+            this.pbMortar.Click += new System.EventHandler(this.pbMortar_Click);
+            // 
+            // pbStart
+            // 
+            this.pbStart.BackColor = System.Drawing.Color.DimGray;
+            this.pbStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pbStart.InitialImage = null;
+            this.pbStart.Location = new System.Drawing.Point(37, 62);
+            this.pbStart.Name = "pbStart";
+            this.pbStart.Size = new System.Drawing.Size(104, 99);
+            this.pbStart.TabIndex = 5;
+            this.pbStart.TabStop = false;
+            this.pbStart.Click += new System.EventHandler(this.pbStart_Click);
+            // 
             // btnSumulate
             // 
-            this.btnSumulate.Location = new System.Drawing.Point(56, 291);
+            this.btnSumulate.Location = new System.Drawing.Point(56, 301);
             this.btnSumulate.Name = "btnSumulate";
             this.btnSumulate.Size = new System.Drawing.Size(216, 51);
             this.btnSumulate.TabIndex = 4;
@@ -114,46 +153,6 @@
             this.pnlBottom.TabIndex = 2;
             this.pnlBottom.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBottom_Paint);
             // 
-            // pbStart
-            // 
-            this.pbStart.BackColor = System.Drawing.Color.DimGray;
-            this.pbStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pbStart.Image = ((System.Drawing.Image)(resources.GetObject("pbStart.Image")));
-            this.pbStart.InitialImage = null;
-            this.pbStart.Location = new System.Drawing.Point(37, 62);
-            this.pbStart.Name = "pbStart";
-            this.pbStart.Size = new System.Drawing.Size(104, 99);
-            this.pbStart.TabIndex = 5;
-            this.pbStart.TabStop = false;
-            this.pbStart.Click += new System.EventHandler(this.pbStart_Click);
-            // 
-            // pbMortar
-            // 
-            this.pbMortar.BackColor = System.Drawing.Color.DimGray;
-            this.pbMortar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pbMortar.Image = ((System.Drawing.Image)(resources.GetObject("pbMortar.Image")));
-            this.pbMortar.InitialImage = null;
-            this.pbMortar.Location = new System.Drawing.Point(168, 186);
-            this.pbMortar.Name = "pbMortar";
-            this.pbMortar.Size = new System.Drawing.Size(104, 99);
-            this.pbMortar.TabIndex = 6;
-            this.pbMortar.TabStop = false;
-            this.pbMortar.Click += new System.EventHandler(this.pbMortar_Click);
-            // 
-            // pbEnd
-            // 
-            this.pbEnd.BackColor = System.Drawing.Color.DimGray;
-            this.pbEnd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pbEnd.ErrorImage = null;
-            this.pbEnd.Image = ((System.Drawing.Image)(resources.GetObject("pbEnd.Image")));
-            this.pbEnd.InitialImage = null;
-            this.pbEnd.Location = new System.Drawing.Point(168, 62);
-            this.pbEnd.Name = "pbEnd";
-            this.pbEnd.Size = new System.Drawing.Size(104, 99);
-            this.pbEnd.TabIndex = 7;
-            this.pbEnd.TabStop = false;
-            this.pbEnd.Click += new System.EventHandler(this.pbEnd_Click);
-            // 
             // frmSimulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,10 +171,10 @@
             this.Load += new System.EventHandler(this.frmSimulator_Load);
             this.pnlRight.ResumeLayout(false);
             this.pnlRight.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbArmyCamp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMortar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMortar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArmyCamp)).EndInit();
             this.ResumeLayout(false);
 
         }
