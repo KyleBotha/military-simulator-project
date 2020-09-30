@@ -13,6 +13,7 @@ namespace military_simulator
 {
     public partial class frmBattlefield : Form
     {
+        //public Grid nodeGrid { get; private set; }
         public Grid nodeGrid;
         public frmBattlefield()
         {
@@ -32,6 +33,11 @@ namespace military_simulator
                     Controls.Add(nodeGrid.grid[i, j]);
                 }
             }
+        }
+        public void get_path()
+        {
+            nodeGrid.update_neighbors();
+            nodeGrid.astar();
         }
     }
 }

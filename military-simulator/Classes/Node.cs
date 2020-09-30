@@ -104,7 +104,16 @@ namespace military_simulator.Classes
         public void make_end()
         {
             this.type = 2;
-            this.BackColor = Color.Turquoise;
+            this.BackColor = Color.Transparent;
+            PictureBox picture = new PictureBox
+            {
+                Name = "pictureBox",
+                Size = new Size(32, 32),
+                //Location = new Point(coordinates.X - 25, coordinates.Y - 25),
+                Image = Image.FromFile(@"C:/Users/kyleb/Downloads/icons/output-onlinepngtools (1).png"),
+            };
+            picture.SizeMode = PictureBoxSizeMode.StretchImage;
+            Controls.Add(picture);
         }
         public void make_path()
         {
@@ -113,7 +122,16 @@ namespace military_simulator.Classes
         public void make_start()
         {
             this.type = 1;
-            this.BackColor = Color.Orange;
+            this.BackColor = Color.Transparent;
+            PictureBox picture = new PictureBox
+            {
+                Name = "pictureBox",
+                Size = new Size(30, 30),
+                //Location = new Point(coordinates.X - 25, coordinates.Y - 25),
+                Image = Image.FromFile(@"C:/Users/kyleb/Downloads/icons/output-onlinepngtools.png"),
+            };
+            picture.SizeMode = PictureBoxSizeMode.StretchImage;
+            Controls.Add(picture);
         }
         public void make_default()
         {
@@ -128,12 +146,28 @@ namespace military_simulator.Classes
             PictureBox picture = new PictureBox
             {
                 Name = "pictureBox",
-                Size = new Size(16, 16),
+                Size = new Size(32, 32),
                 //Location = new Point(coordinates.X - 25, coordinates.Y - 25),
                 Image = Image.FromFile(@"C:/Users/kyleb/Downloads/icons/military-17-512.png"),
             };
             picture.SizeMode = PictureBoxSizeMode.StretchImage;
             Controls.Add(picture);
         }
+        public void make_mortar()
+        {
+            this.type = 3;
+            this.BackColor = Color.Transparent;
+            //var coordinates = pnlMain.PointToClient(Cursor.Position);
+            PictureBox picture = new PictureBox
+            {
+                Name = "pictureBox",
+                Size = new Size(32, 32),
+                //Location = new Point(coordinates.X - 25, coordinates.Y - 25),
+                Image = Image.FromFile(@"C:/Users/kyleb/Downloads/icons/mortar-108-798970.png"),
+            };
+            picture.SizeMode = PictureBoxSizeMode.StretchImage;
+            Controls.Add(picture);
+        }
+        
     }
 }

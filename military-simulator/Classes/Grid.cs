@@ -23,8 +23,8 @@ namespace military_simulator.Classes
         {
             this.height = height;
             this.width = width;
-            this.numOfRows = numOfRows;
-            this.numOfCols = numOfCols;
+            this.numOfRows = 25;
+            this.numOfCols = 25;
             this.grid = new Node[numOfRows, numOfCols];
 
         }
@@ -180,6 +180,15 @@ namespace military_simulator.Classes
                     {
                         State.item = 10;
                         currentNode.make_start(); 
+                    }else if (State.item == 1)
+                    {
+                        currentNode.make_barrack(); 
+                    }else if (State.item == 2)
+                    {
+                        currentNode.make_mortar(); 
+                    }else if (State.item == 9)
+                    {
+                        currentNode.make_end();
                     }
                     //Add state for the rest of the items, add more items into simulator..
 
@@ -190,35 +199,36 @@ namespace military_simulator.Classes
 
 
                     //if (!State.startNodeState)
-                   // {
-                   //     State.startNodeState = !State.startNodeState;
-                  //      currentNode.make_barrack();
-                   // }
-                   // else if (State.startNodeState)
-                   // {
+                    // {
+                    //     State.startNodeState = !State.startNodeState;
+                    //      currentNode.make_barrack();
+                    // }
+                    // else if (State.startNodeState)
+                    // {
                     //    if (currentNode.is_start())
                     //    {
                     //        currentNode.make_default();
                     //        State.startNodeState = !State.startNodeState;
                     //    }
-                   // }
+                    // }
                     break;
 
-                case MouseButtons.Right:
-                    if (!State.endNodeState)
-                    {
-                        State.endNodeState = !State.endNodeState;
-                        currentNode.make_end();
-                    }
-                    else if (State.endNodeState)
-                    {
-                        if (currentNode.is_end())
-                        {
-                            currentNode.make_default();
-                            State.endNodeState = !State.endNodeState;
-                        }
-                    }
-                    break;
+                //case MouseButtons.Right:
+                  //  if (!State.endNodeState)
+                    //{
+                       // State.endNodeState = !State.endNodeState;
+                        //currentNode.make_end();
+                     
+                   // }
+                   // else if (State.endNodeState)
+                   // {
+                  //      if (currentNode.is_end())
+                  ///      {
+                     //       currentNode.make_default();
+                   //         State.endNodeState = !State.endNodeState;
+                   //     }
+                   // }
+                   // break;
 
             }
         }
@@ -283,8 +293,8 @@ namespace military_simulator.Classes
         public void make_grid()
         {
             int id = 0;
-            int node_width = (int)(this.width / this.numOfCols);
-            int node_height = (int)(this.height / this.numOfRows);
+            int node_width = 32;
+            int node_height = 32;
             for (int j = 0; j < this.numOfRows; j++)
             {
                 for (int i = 0; i < this.numOfCols; i++)

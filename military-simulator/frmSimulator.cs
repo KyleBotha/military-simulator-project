@@ -18,7 +18,7 @@ namespace military_simulator
         {
             InitializeComponent();
         }
-
+        frmBattlefield battlefield = new frmBattlefield();
         private void pnlRight_Paint(object sender, PaintEventArgs e)
         {
                ControlPaint.DrawBorder(e.Graphics, pnlMain.ClientRectangle,
@@ -44,7 +44,7 @@ namespace military_simulator
 
         private void frmSimulator_Load(object sender, EventArgs e)
         {
-            frmBattlefield battlefield = new frmBattlefield();
+            
             battlefield.TopLevel = false;
             battlefield.AutoScroll = true;
             battlefield.FormBorderStyle = FormBorderStyle.None;
@@ -53,7 +53,10 @@ namespace military_simulator
             this.pnlMain.Controls.Add(battlefield);
             battlefield.Show();
             pbArmyCamp.SizeMode = PictureBoxSizeMode.StretchImage;
- 
+            pbStart.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbMortar.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbEnd.SizeMode = PictureBoxSizeMode.StretchImage;
+
         }
 
         private void panel1_Click(object sender, EventArgs e)
@@ -74,12 +77,43 @@ namespace military_simulator
 
         private void btnSumulate_Click(object sender, EventArgs e)
         {
-            
+            battlefield.get_path();
         }
 
         private void pbArmyCamp_Click(object sender, EventArgs e)
         {
             State.item = 1;
+            pbStart.BackColor = Color.DimGray;
+            pbEnd.BackColor = Color.DimGray;
+            pbArmyCamp.BackColor = Color.LightGray;
+            pbMortar.BackColor = Color.DimGray;
+        }
+
+        private void pbStart_Click(object sender, EventArgs e)
+        {
+            State.item = 0;
+            pbStart.BackColor = Color.LightGray;
+            pbEnd.BackColor = Color.DimGray;
+            pbArmyCamp.BackColor = Color.DimGray;
+            pbMortar.BackColor = Color.DimGray;
+        }
+
+        private void pbMortar_Click(object sender, EventArgs e)
+        {
+            State.item = 2;
+            pbStart.BackColor = Color.DimGray;
+            pbEnd.BackColor = Color.DimGray;
+            pbArmyCamp.BackColor = Color.DimGray;
+            pbMortar.BackColor = Color.LightGray;
+        }
+
+        private void pbEnd_Click(object sender, EventArgs e)
+        {
+            State.item = 9;
+            pbStart.BackColor = Color.DimGray;
+            pbEnd.BackColor = Color.LightGray;
+            pbArmyCamp.BackColor = Color.DimGray;
+            pbMortar.BackColor = Color.DimGray;
         }
     }
 }
