@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace military_simulator
 {
     public partial class frmSimulator : Form
     {
-        
+        string exePath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
         public frmSimulator()
         {
             InitializeComponent();
@@ -44,7 +45,15 @@ namespace military_simulator
 
         private void frmSimulator_Load(object sender, EventArgs e)
         {
-            
+            string relative = exePath + @"/../../Assets/";
+            string absolute = Path.GetFullPath(relative); 
+            pbEnd.Image = Image.FromFile(absolute + "end.png"); 
+            pbStart.Image = Image.FromFile(absolute + "start.png"); 
+            pbArmyCamp.Image = Image.FromFile(absolute + "camp.png"); 
+            pbMortar.Image = Image.FromFile(absolute + "mortar.png"); 
+           
+
+
             battlefield.TopLevel = false;
             battlefield.AutoScroll = true;
             battlefield.FormBorderStyle = FormBorderStyle.None;

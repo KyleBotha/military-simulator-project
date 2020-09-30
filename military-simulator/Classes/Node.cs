@@ -17,7 +17,7 @@ namespace military_simulator.Classes
         public int last;
         public int row;
         public int col;
-
+        public string exePath;
         public int x;
         public int y;
         public Point coords;
@@ -44,6 +44,7 @@ namespace military_simulator.Classes
             this.g = g;
             this.h = h;
             this.priority = f;
+            string exePath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
 
         }
         public int CompareTo(Node other)
@@ -110,7 +111,8 @@ namespace military_simulator.Classes
                 Name = "pictureBox",
                 Size = new Size(32, 32),
                 //Location = new Point(coordinates.X - 25, coordinates.Y - 25),
-                Image = Image.FromFile(@"C:/Users/kyleb/Downloads/icons/output-onlinepngtools (1).png"),
+                Image = Image.FromFile(exePath + @"../../Assets/end.png"
+                ),
             };
             picture.SizeMode = PictureBoxSizeMode.StretchImage;
             Controls.Add(picture);
@@ -128,7 +130,7 @@ namespace military_simulator.Classes
                 Name = "pictureBox",
                 Size = new Size(30, 30),
                 //Location = new Point(coordinates.X - 25, coordinates.Y - 25),
-                Image = Image.FromFile(@"C:/Users/kyleb/Downloads/icons/output-onlinepngtools.png"),
+                Image = Image.FromFile(exePath + @"../../Assets/start.png"),
             };
             picture.SizeMode = PictureBoxSizeMode.StretchImage;
             Controls.Add(picture);
@@ -148,7 +150,7 @@ namespace military_simulator.Classes
                 Name = "pictureBox",
                 Size = new Size(32, 32),
                 //Location = new Point(coordinates.X - 25, coordinates.Y - 25),
-                Image = Image.FromFile(@"C:/Users/kyleb/Downloads/icons/military-17-512.png"),
+                Image = Image.FromFile(exePath + @"../../Assets/camp.png"),
             };
             picture.SizeMode = PictureBoxSizeMode.StretchImage;
             Controls.Add(picture);
@@ -163,7 +165,7 @@ namespace military_simulator.Classes
                 Name = "pictureBox",
                 Size = new Size(32, 32),
                 //Location = new Point(coordinates.X - 25, coordinates.Y - 25),
-                Image = Image.FromFile(@"C:/Users/kyleb/Downloads/icons/mortar-108-798970.png"),
+                Image = Image.FromFile(exePath + @"../../Assets/mortar.png"),
             };
             picture.SizeMode = PictureBoxSizeMode.StretchImage;
             Controls.Add(picture);
