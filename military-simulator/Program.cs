@@ -20,3 +20,4 @@ namespace military_simulator
         }
     }
 }
+

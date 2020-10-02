@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSimulator));
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlRight = new System.Windows.Forms.Panel();
+            this.btnRunSim = new System.Windows.Forms.Button();
             this.pbEnd = new System.Windows.Forms.PictureBox();
             this.pbMortar = new System.Windows.Forms.PictureBox();
             this.pbStart = new System.Windows.Forms.PictureBox();
             this.btnSumulate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pbArmyCamp = new System.Windows.Forms.PictureBox();
-            this.pnlBottom = new System.Windows.Forms.Panel();
             this.pnlRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMortar)).BeginInit();
@@ -60,6 +60,7 @@
             // 
             this.pnlRight.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.pnlRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlRight.Controls.Add(this.btnRunSim);
             this.pnlRight.Controls.Add(this.pbEnd);
             this.pnlRight.Controls.Add(this.pbMortar);
             this.pnlRight.Controls.Add(this.pbStart);
@@ -68,9 +69,20 @@
             this.pnlRight.Controls.Add(this.pbArmyCamp);
             this.pnlRight.Location = new System.Drawing.Point(800, 0);
             this.pnlRight.Name = "pnlRight";
-            this.pnlRight.Size = new System.Drawing.Size(350, 900);
+            this.pnlRight.Size = new System.Drawing.Size(350, 800);
             this.pnlRight.TabIndex = 1;
             this.pnlRight.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRight_Paint);
+            // 
+            // btnRunSim
+            // 
+            this.btnRunSim.Font = new System.Drawing.Font("Army", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRunSim.Location = new System.Drawing.Point(37, 438);
+            this.btnRunSim.Name = "btnRunSim";
+            this.btnRunSim.Size = new System.Drawing.Size(235, 51);
+            this.btnRunSim.TabIndex = 8;
+            this.btnRunSim.Text = "Run Simulation";
+            this.btnRunSim.UseVisualStyleBackColor = true;
+            this.btnRunSim.Click += new System.EventHandler(this.btnRunSim_Click);
             // 
             // pbEnd
             // 
@@ -113,11 +125,12 @@
             // 
             // btnSumulate
             // 
-            this.btnSumulate.Location = new System.Drawing.Point(56, 301);
+            this.btnSumulate.Font = new System.Drawing.Font("Army", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSumulate.Location = new System.Drawing.Point(37, 362);
             this.btnSumulate.Name = "btnSumulate";
-            this.btnSumulate.Size = new System.Drawing.Size(216, 51);
+            this.btnSumulate.Size = new System.Drawing.Size(235, 51);
             this.btnSumulate.TabIndex = 4;
-            this.btnSumulate.Text = "Simulate";
+            this.btnSumulate.Text = "Setup Simulation";
             this.btnSumulate.UseVisualStyleBackColor = true;
             this.btnSumulate.Click += new System.EventHandler(this.btnSumulate_Click);
             // 
@@ -144,15 +157,6 @@
             this.pbArmyCamp.TabStop = false;
             this.pbArmyCamp.Click += new System.EventHandler(this.pbArmyCamp_Click);
             // 
-            // pnlBottom
-            // 
-            this.pnlBottom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlBottom.Location = new System.Drawing.Point(0, 800);
-            this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(800, 100);
-            this.pnlBottom.TabIndex = 2;
-            this.pnlBottom.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBottom_Paint);
-            // 
             // frmSimulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,7 +164,6 @@
             this.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.ClientSize = new System.Drawing.Size(1150, 900);
             this.ControlBox = false;
-            this.Controls.Add(this.pnlBottom);
             this.Controls.Add(this.pnlRight);
             this.Controls.Add(this.pnlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -183,12 +186,12 @@
 
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Panel pnlRight;
-        private System.Windows.Forms.Panel pnlBottom;
         private System.Windows.Forms.PictureBox pbArmyCamp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSumulate;
         private System.Windows.Forms.PictureBox pbStart;
         private System.Windows.Forms.PictureBox pbMortar;
         private System.Windows.Forms.PictureBox pbEnd;
+        private System.Windows.Forms.Button btnRunSim;
     }
 }
