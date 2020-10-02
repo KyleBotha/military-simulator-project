@@ -21,6 +21,9 @@ namespace military_simulator
         private void btnRegister_Click(object sender, EventArgs e)
         {
             RegisterHandler register = new RegisterHandler(txtName.Text, txtSurname.Text, txtRank.Text, txtDodId.Text, txtAffiliation.Text, txtUsername.Text,txtPassword.Text, txtCPassword.Text);
+            frmBattlefieldPicker battleFieldPicker = new frmBattlefieldPicker();
+            this.Hide();
+            battleFieldPicker.ShowDialog();
         }
     }
 }

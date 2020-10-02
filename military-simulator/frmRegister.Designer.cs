@@ -97,7 +97,6 @@
             this.txtAffiliation.Font = new System.Drawing.Font("Army", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAffiliation.Location = new System.Drawing.Point(282, 285);
             this.txtAffiliation.Name = "txtAffiliation";
-            this.txtAffiliation.PasswordChar = '*';
             this.txtAffiliation.Size = new System.Drawing.Size(234, 25);
             this.txtAffiliation.TabIndex = 7;
             // 
@@ -188,7 +187,6 @@
             this.txtUsername.Font = new System.Drawing.Font("Army", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(282, 332);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.PasswordChar = '*';
             this.txtUsername.Size = new System.Drawing.Size(234, 25);
             this.txtUsername.TabIndex = 18;
             // 
@@ -239,7 +237,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.ClientSize = new System.Drawing.Size(593, 572);
+            this.ClientSize = new System.Drawing.Size(596, 572);
             this.Controls.Add(this.lblCPassword);
             this.Controls.Add(this.txtCPassword);
             this.Controls.Add(this.lblPassword);

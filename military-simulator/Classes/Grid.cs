@@ -18,6 +18,7 @@ namespace military_simulator.Classes
         public Node[,] grid { get; set; }
         public int startCount = 0;
         public int endCount = 0;
+        List<Node> shortest_route = new List<Node>(); 
 
         public Grid(int height, int width, int numOfRows, int numOfCols)
         {
@@ -28,14 +29,17 @@ namespace military_simulator.Classes
             this.grid = new Node[numOfRows, numOfCols];
 
         }
-
+        public List<Node> get_route()
+        {
+            return shortest_route; 
+        }
         Node addNode(string name, int xpos, int ypos, int x, int y, double width, int id, int numOfRows)
         {
 
             Node l = new Node(id, 0, 0, 0, 0, 0, x, y, Convert.ToInt32(width), numOfRows);
             l.Name = name;
             l.Location = new System.Drawing.Point(xpos, ypos);
-            l.BorderStyle = BorderStyle.FixedSingle;
+            l.BorderStyle = BorderStyle.None;
             l.BackColor = Color.Transparent; 
             return l;
         }
@@ -131,7 +135,8 @@ namespace military_simulator.Classes
             while (came_from.ContainsKey(current))
             {
                 current = came_from[current];
-                current.make_path();
+                shortest_route.Add(current);
+
             }
         }
         public int h(Point p1, Point p2)
@@ -175,60 +180,53 @@ namespace military_simulator.Classes
             switch (e.Button)
             {
                 case MouseButtons.Left:
-                    
-                    if (State.item == 0)
+                    if (currentNode.type != 20)
                     {
-                        State.item = 10;
-                        currentNode.make_start(); 
-                    }else if (State.item == 1)
-                    {
-                        currentNode.make_barrack(); 
-                    }else if (State.item == 2)
-                    {
-                        currentNode.make_mortar(); 
-                    }else if (State.item == 9)
-                    {
-                        currentNode.make_end();
+                        if (State.item == 0)
+                        {
+                            State.item = 10;
+                            currentNode.make_start();
+
+                        }
+                        else if (State.item == 1)
+                        {
+                            currentNode.make_barrack();
+                            int xcoord = currentNode.row;
+                            int ycoord = currentNode.col;
+                            this.grid[xcoord + 1, ycoord].make_danger();
+                            this.grid[xcoord + 2, ycoord].make_danger();
+                            this.grid[xcoord - 1, ycoord].make_danger();
+                            this.grid[xcoord - 2, ycoord].make_danger();
+
+                            this.grid[xcoord, ycoord + 1].make_danger();
+                            this.grid[xcoord, ycoord + 2].make_danger();
+                            this.grid[xcoord, ycoord - 1].make_danger();
+                            this.grid[xcoord, ycoord - 2].make_danger();
+
+                            this.grid[xcoord + 1, ycoord + 1].make_danger();
+                            this.grid[xcoord - 1, ycoord + 1].make_danger();
+                            this.grid[xcoord - 1, ycoord - 1].make_danger();
+                            this.grid[xcoord + 1, ycoord - 1].make_danger();
+
+
+
+
+                        }
+                        else if (State.item == 2)
+                        {
+                            currentNode.make_mortar();
+                        }
+                        else if (State.item == 9)
+                        {
+                            currentNode.make_end();
+                        }
                     }
-                    //Add state for the rest of the items, add more items into simulator..
 
+                    
 
-
-
-
-
-
-                    //if (!State.startNodeState)
-                    // {
-                    //     State.startNodeState = !State.startNodeState;
-                    //      currentNode.make_barrack();
-                    // }
-                    // else if (State.startNodeState)
-                    // {
-                    //    if (currentNode.is_start())
-                    //    {
-                    //        currentNode.make_default();
-                    //        State.startNodeState = !State.startNodeState;
-                    //    }
-                    // }
                     break;
 
-                //case MouseButtons.Right:
-                  //  if (!State.endNodeState)
-                    //{
-                       // State.endNodeState = !State.endNodeState;
-                        //currentNode.make_end();
-                     
-                   // }
-                   // else if (State.endNodeState)
-                   // {
-                  //      if (currentNode.is_end())
-                  ///      {
-                     //       currentNode.make_default();
-                   //         State.endNodeState = !State.endNodeState;
-                   //     }
-                   // }
-                   // break;
+                
 
             }
         }
@@ -263,6 +261,10 @@ namespace military_simulator.Classes
                         Node temp = grid[i, j - 1];
                         grid[i, j].neighbors.Add(temp);
                     }
+                    
+                    
+
+                    
                 }
             }
             for (int i = 0; i < numOfRows; i++)
@@ -288,7 +290,7 @@ namespace military_simulator.Classes
                     grid[i, j].f = grid[i, j].g + grid[i, j].h;
                 }
             }
-            MessageBox.Show("Neighbors updated.");
+           // MessageBox.Show("Neighbors updated.");
         }
         public void make_grid()
         {

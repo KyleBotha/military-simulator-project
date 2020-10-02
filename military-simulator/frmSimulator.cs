@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,12 +15,16 @@ namespace military_simulator
 {
     public partial class frmSimulator : Form
     {
-        string exePath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
-        public frmSimulator()
+
+        frmBattlefield battlefield;
+        public frmSimulator(int map)
         {
             InitializeComponent();
+            this.Parent = Parent;
+            battlefield = new frmBattlefield(map);
         }
-        frmBattlefield battlefield = new frmBattlefield();
+
+        string exePath = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
         private void pnlRight_Paint(object sender, PaintEventArgs e)
         {
                ControlPaint.DrawBorder(e.Graphics, pnlMain.ClientRectangle,
@@ -27,6 +32,7 @@ namespace military_simulator
                Color.Black, 1, ButtonBorderStyle.Solid, // top
                Color.Black, 1, ButtonBorderStyle.Solid, // right
                Color.Black, 1, ButtonBorderStyle.Solid);// bottom
+            battlefield.make_border();
         }
 
         private void pnlBottom_Paint(object sender, PaintEventArgs e)
@@ -51,21 +57,17 @@ namespace military_simulator
             pbStart.Image = Image.FromFile(absolute + "start.png"); 
             pbArmyCamp.Image = Image.FromFile(absolute + "camp.png"); 
             pbMortar.Image = Image.FromFile(absolute + "mortar.png"); 
-           
-
-
             battlefield.TopLevel = false;
             battlefield.AutoScroll = true;
             battlefield.FormBorderStyle = FormBorderStyle.None;
             battlefield.Size = new Size(800, 800); 
-            
             this.pnlMain.Controls.Add(battlefield);
             battlefield.Show();
             pbArmyCamp.SizeMode = PictureBoxSizeMode.StretchImage;
             pbStart.SizeMode = PictureBoxSizeMode.StretchImage;
             pbMortar.SizeMode = PictureBoxSizeMode.StretchImage;
             pbEnd.SizeMode = PictureBoxSizeMode.StretchImage;
-
+            btnRunSim.Enabled = false; 
         }
 
         private void panel1_Click(object sender, EventArgs e)
@@ -87,6 +89,10 @@ namespace military_simulator
         private void btnSumulate_Click(object sender, EventArgs e)
         {
             battlefield.get_path();
+            battlefield.make_clouds();
+            btnSumulate.Enabled = false; 
+            btnRunSim.Enabled = true; 
+
         }
 
         private void pbArmyCamp_Click(object sender, EventArgs e)
@@ -123,6 +129,22 @@ namespace military_simulator
             pbEnd.BackColor = Color.LightGray;
             pbArmyCamp.BackColor = Color.DimGray;
             pbMortar.BackColor = Color.DimGray;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnRunSim_Click(object sender, EventArgs e)
+        {
+            battlefield.show_path();
         }
     }
 }

@@ -90,17 +90,22 @@ namespace military_simulator.Classes
         public void make_closed()
         {
             this.type = 4;
-            this.BackColor = Color.Red;
+            //this.BackColor = Color.Red;
         }
         public void make_open()
         {
             this.type = 5;
-            this.BackColor = Color.Green;
+            //this.BackColor = Color.Green;
         }
         public void make_obstacle()
         {
             this.type = 3;
             this.BackColor = Color.Black;
+        }
+        public void make_danger()
+        {
+            this.type = 3;
+            this.BackColor = Color.FromArgb(100, Color.Red);
         }
         public void make_end()
         {
@@ -138,12 +143,36 @@ namespace military_simulator.Classes
         public void make_default()
         {
             this.type = 0;
-            this.BackColor = Color.White;
+            this.BackColor = Color.Transparent;
+            foreach (Control item in this.Controls.OfType<PictureBox>())
+            {
+                this.Controls.Remove(item);
+            }
+        }
+        public void make_visited()
+        {
+            this.type = 0;
+            this.BackColor = Color.FromArgb(170, Color.Green);
+            foreach (Control item in this.Controls.OfType<PictureBox>())
+            {
+                this.Controls.Remove(item);
+            }
+        }
+        public void make_border()
+        {
+            this.BackColor = Color.FromArgb(90, Color.Black);
+            this.type = 20;
+        }
+        public void make_cloud()
+        {
+            this.BackColor = Color.FromArgb(170, Color.LightGray);
+
         }
         public void make_barrack()
         {
-            this.type = 3;
+            this.type = 11;
             this.BackColor = Color.Transparent;
+
             //var coordinates = pnlMain.PointToClient(Cursor.Position);
             PictureBox picture = new PictureBox
             {
@@ -155,10 +184,35 @@ namespace military_simulator.Classes
             picture.SizeMode = PictureBoxSizeMode.StretchImage;
             Controls.Add(picture);
         }
+        public void make_true()
+        {
+            if (this.type == 3)
+            {
+                this.BackColor = Color.FromArgb(100, Color.Red);
+            }
+            if (this.type == 11)
+            {
+                this.BackColor = Color.FromArgb(100, Color.Red);
+                PictureBox picture = new PictureBox
+                {
+                    Name = "pictureBox",
+                    Size = new Size(32, 32),
+                    //Location = new Point(coordinates.X - 25, coordinates.Y - 25),
+                    Image = Image.FromFile(exePath + @"../../Assets/camp.png"),
+                };
+                picture.SizeMode = PictureBoxSizeMode.StretchImage;
+                Controls.Add(picture);
+            }
+            if(this.type == 0 || this.type == 5 || this.type == 4 )
+            {
+                this.BackColor = Color.Transparent;
+            }
+        }
         public void make_mortar()
         {
             this.type = 3;
             this.BackColor = Color.Transparent;
+            
             //var coordinates = pnlMain.PointToClient(Cursor.Position);
             PictureBox picture = new PictureBox
             {
@@ -166,6 +220,20 @@ namespace military_simulator.Classes
                 Size = new Size(32, 32),
                 //Location = new Point(coordinates.X - 25, coordinates.Y - 25),
                 Image = Image.FromFile(exePath + @"../../Assets/mortar.png"),
+            };
+            picture.SizeMode = PictureBoxSizeMode.StretchImage;
+            Controls.Add(picture);
+        }
+        public void make_plane()
+        {
+            this.BackColor = Color.Transparent;
+            //var coordinates = pnlMain.PointToClient(Cursor.Position);
+            PictureBox picture = new PictureBox
+            {
+                Name = "pictureBox",
+                Size = new Size(32, 32),
+                //Location = new Point(coordinates.X - 25, coordinates.Y - 25),
+                Image = Image.FromFile(exePath + @"../../Assets/Plane.png"),
             };
             picture.SizeMode = PictureBoxSizeMode.StretchImage;
             Controls.Add(picture);
